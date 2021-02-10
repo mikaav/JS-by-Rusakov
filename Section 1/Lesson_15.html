@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      let error = (msg) => console.log(msg);
+
+      function sum(a, b, err) {
+        if (Number.isNaN(a) || Number.isNaN(b))
+          err("Были переданы некорректные параметры");
+        else return a + b;
+      }
+
+      let a = Number(prompt("Enter first number"));
+      let b = Number(prompt("Enter second number"));
+      console.log(sum(a, b, error));
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) Перепишите функцию error из предыдущего упражнения на стрелочный вариант.
+2) Убедитесь, что ничего не сломалось и всё работает. -->

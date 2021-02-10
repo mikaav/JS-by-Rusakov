@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      let arr = [5, 7, 8, 23, 61, -9, 31, 13, -4, 69];
+
+      function getMinIndex(arr) {
+        let index = 0;
+        for (let i = 1; i < arr.length; i++) {
+          if (arr[i] < arr[index]) index = i;
+        }
+        return index;
+      }
+      console.log(getMinIndex(arr));
+
+      arr = [
+        [9, 65, 23],
+        [81, 90, 5],
+        [56, 34, 7, 77],
+      ];
+
+      function getMaxValue(arr) {
+        let max = arr[0][0];
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = 0; j < arr[i].length; j++) {
+            if (arr[i][j] > max) max = arr[i][j];
+          }
+        }
+        return max;
+      }
+      console.log(getMaxValue(arr));
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) Создайте одномерный массив из 10 чисел.
+2) Напишите функцию, которая вернёт индекс (не значение, а именно индекс) минимального значения в массиве.
+3) Проверьте результат работы функции, выведя его в консоль.
+4) Создайте двумерный массив, состоящий из чисел.
+5) Напишите функцию, которая вернёт максимальное значение из двумерного массива.
+6) Проверьте результат работы функции, выведя его в консоль. -->
