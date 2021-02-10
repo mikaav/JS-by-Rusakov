@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      function sum(x, y) {
+        return x + y;
+      }
+
+      function sub(x, y) {
+        return x - y;
+      }
+
+      function mul(x, y) {
+        return x * y;
+      }
+
+      function div(x, y) {
+        return x / y;
+      }
+
+      while (true) {
+        try {
+          let x = prompt("Enter first number");
+          if (x == "exit") break;
+          x = +x;
+          if (Number.isNaN(x)) throw new Error();
+          let op = prompt("Enter what you want to do: + - * / ");
+          if (op != "+" && opp != "-" && op != "*" && op != "/")
+            throw new Error();
+          let y = +prompt("Enter second number");
+          if (Number.isNaN(y)) throw new Error();
+
+          let result;
+
+          switch (op) {
+            case "+":
+              result = sum(x, y);
+              break;
+            case "-":
+              result = sub(x, y);
+              break;
+            case "*":
+              result = mul(x, y);
+              break;
+            case "/":
+              result = div(x, y);
+              break;
+          }
+          alert(result);
+        } catch (e) {
+          alert("Wrong data");
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) Создайте 4 функции, каждая с двумя параметрами: сложение, вычитание, умножение и деление.
+2) Сделайте калькулятор. Пользователь вводит через prompt первое число, затем операцию (+, -, * и /),
+ затем второе число. После, используя одну из функций, созданных в первом пункте, 
+ выведите полученный результат пользователю через alert.
+3) Обработайте через try-catch некорректный ввод пользователя, выведя через alert() информацию об ошибке.
+4) Оформите всё это в бесконечном цикле, и при вводе пользователем строки «exit» вместо первого числа, 
+сделайте выход из цикла и завершение скрипта. -->
