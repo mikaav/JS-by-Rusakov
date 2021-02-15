@@ -23,15 +23,21 @@
       while (true) {
         try {
           let x = prompt("Enter first number");
-          if (x == "exit") break;
-          x = +x;
-          if (Number.isNaN(x)) throw new Error();
+          if (x == "exit") {
+            break;
+          }
+          x = Number(x);
+          if (Number.isNaN(x)) {
+            throw new Error("foo");
+          }
           let op = prompt("Enter what you want to do: + - * / ");
-          if (op != "+" && opp != "-" && op != "*" && op != "/")
-            throw new Error();
-          let y = +prompt("Enter second number");
-          if (Number.isNaN(y)) throw new Error();
-
+          if (op != "+" && op != "-" && op != "*" && op != "/") {
+            throw new Error("bar");
+          }
+          let y = Number(prompt("Enter second number"));
+          if (Number.isNaN(y)) {
+            throw new Error("baz");
+          }
           let result;
 
           switch (op) {
@@ -50,7 +56,7 @@
           }
           alert(result);
         } catch (e) {
-          alert("Wrong data");
+          alert("Wrong data" + e.toString());
         }
       }
     </script>
