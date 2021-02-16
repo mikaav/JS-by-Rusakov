@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      function Rect(x, h, y, w) {
+        this.x = x;
+        this.h = h;
+        this.y = y;
+        this.w = w;
+        this.sqr = function () {
+          return `площадь прямоугольника ${y * h}`;
+        };
+        this.toString = function () {
+          return `Прямоугольник с координатами ${this.x} , ${this.y} шириной ${this.w} и высотой ${this.h}`;
+        };
+        this.valueOf = function () {
+          return sqr();
+        };
+      }
+      let s = new Rect(10, 20, 5, 12);
+      console.log(s.sqr());
+      alert(s);
+      alert(s.sqr());
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) Дополните конструктор прямоугольника из урока «Создание конструктора и методов» новыми методами: toString и valueOf.
+2) В методе toString должна возвращаться строка: «Прямоугольник с координатами (X; Y) шириной W и высотой H».
+ Вместо X, Y, W, H должны быть соответствующие значения свойств.
+3) В метод valueOf должна возвращаться площадь (соответствующий метод уже был Вами написан, поэтому просто вызовите его).
+4) Проверьте правильность работы обоих методов. -->
