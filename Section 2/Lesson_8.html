@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      class Point {
+        static counter = 0;
+
+        constructor(x, h, y, w) {
+          this.x = x;
+          this.h = h;
+          this.y = y;
+          this.w = w;
+          Point.counter++;
+        }
+
+        static getCounter() {
+          return Point.counter;
+        }
+      }
+      let s = new Point(10, 20, 5, 12);
+      let a = new Point(25, 6, 8, 7);
+      let b = new Point(557, 236, 128, 123);
+
+      console.log(Point.getCounter());
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) Добавьте к классу прямоугольников статическое свойство counter.
+2) При создании новых объектов counter должен инкрементироваться.
+3) Создайте статический метод, который вернёт текущее значение counter.
+4) Выведите в консоль результат метода из 3-го пункта.
+5) Создайте 3 объекта прямоугольника.
+6) Выведите в консоль результат метода из 3-го пункта. -->
