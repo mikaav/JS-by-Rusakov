@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      class Sedan {
+        constructor(x, y, maxspeed) {
+          this.x = x;
+          this.y = y;
+          this.maxspeed = maxspeed;
+        }
+        move(x, y) {
+          this.x = x;
+          this.y = y;
+          console.log("Drivng Sedan");
+        }
+      }
+      class Jeep extends Sedan {
+        constructor(x, y, maxspeed, sits) {
+          super(x, y, maxspeed);
+          this.sits = sits;
+        }
+        move(x, y) {
+          // super.move(x, y);
+          this.x = x;
+          this.y = y;
+          console.log("Driving Jeep");
+        }
+      }
+
+      let car = new Sedan(12, 9, 80);
+      let jeep = new Jeep(2, 25, 94, 7);
+
+      console.log(car);
+      console.log(jeep);
+
+      car.move(300, 200);
+      console.log(car);
+      jeep.move(100, 500);
+      console.log(jeep);
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) Создайте класс для автомобилей, указав у этого класса необходимые свойства (подумайте, какие именно свойства можно указать для всех автомобилей,
+ но обязательно должны быть координаты x и y, в которых находится автомобиль).
+2) Добавьте метод движения с координатами в качестве параметров и реализацией в виде вывода строки в консоль./p>
+3) Создайте дочерний класс для какой-нибудь конкретной модели автомобиля. Придумайте какое-нибудь свойство, которое характерно именно для этой модели,
+ и добавьте его.
+4) Переопределите метод движения. В новом методе должны так же меняться координаты, но при этом в print должно выводиться не «автомобиль», 
+а название конкретного автомобиля, для которого был создан этот класс.
+5) Создайте экземпляры обоих классов и проверьте работу их свойств и методов. -->
