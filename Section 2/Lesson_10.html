@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      class Rect {
+        constructor(x, y, w, h) {
+          this._x = x;
+          this._y = y;
+          this._w = w;
+          this._h = h;
+        }
+
+        getW() {
+          return this._w;
+        }
+        getH() {
+          return this._h;
+        }
+        setW(w) {
+          if (this.check(w)) this._w = w;
+        }
+        setH(h) {
+          if (this.check(h)) this._h = h;
+        }
+        check(data) {
+          return data > 0;
+        }
+      }
+
+      let r = new Rect(12, 25, 1, 45);
+      console.log(r.getW());
+      console.log(r.getH());
+      r.setW(-25);
+      console.log(r.getW());
+      console.log("-------------------------------");
+      r.setW(548);
+      r.setH(1283);
+      console.log(r.getW());
+      console.log(r.getH());
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) Сделайте у класса прямоугольника свойства ширины и высоты защищёнными.
+2) Добавьте в класс методы получения и изменения ширины и высоты.
+3) Сделайте метод, проверяющий корректность параметров у методов по изменению ширины и высоты (они должны быть строго положительными). 
+Метод должен возвращать true или false.
+4) Добавьте созданный метод в set-методы ширины и высоты, чтобы нельзя было присвоить ширине и высоте отрицательные значения. -->
