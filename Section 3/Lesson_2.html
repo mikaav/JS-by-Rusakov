@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      let str = prompt("Enter some text").toLowerCase();
+
+      let count = 0;
+      for (let i = 0; i < str.length; i++) {
+        if (str[i] == "a") {
+          count++;
+        }
+      }
+      alert("Letter a in this tex is " + count);
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) Через prompt попросите пользователя ввести строку.
+2) Выведите через alert количество вхождений букв а без учёта регистра (то есть и А, и а должны попасть в общее количество). -->
