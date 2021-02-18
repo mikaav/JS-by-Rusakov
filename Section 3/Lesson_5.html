@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      let count = Math.round(5 + Math.random() * 10);
+      console.log(count);
+      let arr = [];
+      for (let i = 0; i < count; i++) {
+        arr.push(Math.ceil(Math.random() * 100));
+      }
+      console.log(arr);
+      arr.sort(function (item1, item2) {
+        return item2 - item1;
+      });
+      console.log(arr);
+
+      let less = 0;
+      let more = 0;
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < 50) {
+          less++;
+        }
+        if (arr[i] > 50) {
+          more++;
+        }
+      }
+      console.log(less);
+      console.log(more);
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) Создайте массив со случайным количеством элементов (от 5 до 15) и запишите в него случайные целые значения от 1 до 100. 
+  Разумеется, используйте Math.random() для этого.
+2) Выведите массив в консоль.
+3) Сделайте сортировку массива по убыванию.
+4) Выведите массив в консоль.
+5) Выведите в консоль количество вхождений в массив чисел больше 50 и количество вхождений чисел меньше 50. -->
