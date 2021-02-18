@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      let arr = [20, "Hello", true, [30, 40], { x: 10, y: 71 }];
+      // console.log(JSON.stringify(arr));
+      let a = JSON.stringify(arr);
+      console.log(a);
+      // console.log(JSON.parse(arr));
+      let b = JSON.parse(a);
+      console.log(b);
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) Создайте массив, состоящий из 5 элементов различных типов: число, строка, true, другой массив и объект.
+2) Выведите в консоль преобразованный в JSON массив из 1-го пункта.
+3) Преобразуйте JSON-строку обратно в массив и выведите его в консоль.
+4) Обязательно ознакомьтесь с синтаксисом JSON. -->

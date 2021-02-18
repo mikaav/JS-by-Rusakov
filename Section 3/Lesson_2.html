@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <title>JS</title>
     <script>
-      let str = prompt("Enter some text").toLowerCase();
+      let str = prompt("Enter some text");
 
       let count = 0;
       for (let i = 0; i < str.length; i++) {
-        if (str[i] == "a") {
+        if (str[i] === "a" || str[i] === "A") {
           count++;
         }
       }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      let log = prompt("Enter Login: ");
+      let mail = prompt("Enter E-mail: ");
+
+      function checkLogin(login) {
+        let reg = /^[0-9a-z]+$/i;
+        return login.match(reg);
+      }
+
+      if (checkLogin(log)) {
+        console.log(log);
+        console.log("Login is correct");
+      } else {
+        console.log("Wrong Login");
+      }
+
+      function checkEmail(email) {
+        let reg = /^[0-9a-z_]+@[0-9a-z_]+\.[a-z]{2,}$/i;
+        return email.match(reg);
+      }
+
+      if (checkEmail(mail)) {
+        console.log(mail);
+        console.log("E-mail is correct");
+      } else {
+        console.log("Wrong E-mail");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) Изучите в справочнике правила составления регулярных выражений.
+2) Через prompt попросите пользователя ввести логин.
+3) С помощью регулярных выражений проверьте корректность ввода.
+4) Через prompt попросите пользователю ввести какую-нибудь строку, содержащую 1 или несколько e-mail адресов.
+5) С помощью регулярных выражений вытащите из неё все e-mail адреса и выведите их в консоль.
+
