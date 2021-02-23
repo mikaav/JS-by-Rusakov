@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      let date = new Date();
+      let startYear = new Date(date.getFullYear(), 0, 1, 0, 0, 0);
+      let seconds = (date.getTime() - startYear.getTime()) / 1000;
+      let minutes = seconds / 60;
+      let hours = minutes / 60;
+      let days = hours / 24;
+      console.log(date);
+      let m = new Map();
+      m.set("seconds", seconds);
+      m.set("minutes", minutes);
+      m.set("hours", hours);
+      m.set("days", days);
+
+      for (let entry of m) {
+        console.log(`Key ${entry[0]} and value ${entry[1]}`);
+      }
+
+      let newYear = new Date(date.getFullYear() + 1, 0, 1, 0, 0, 0);
+      console.log(
+        "Before new Year : " +
+          (newYear.getTime() - date.getTime()) / (1000 * 60 * 60) +
+          " hours"
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) Вычислите, используя функции даты и времени, сколько прошло с начала года секунд, минут, часов и дней.
+2) Запишите все эти данные в Map (ключи можно взять следующие: seconds, minutes, hours, days).
+3) Выведите созданный Map в консоль, используя цикл. Убедитесь, что при последующих запусках скрипта значения изменяются.
+4) Создайте объект Date с данными ближайшего Нового года.
+5) Вычислите, используя функции даты и времени, сколько осталось до Нового года часов.
+6) Выведите полученный результат в консоль. -->

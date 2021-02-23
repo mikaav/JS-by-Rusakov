@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      let s = new Set();
+      let i = 0;
+      while (i < 100) {
+        s.add(Math.floor(Math.random() * 10) + 1);
+        i++;
+      }
+      for (const item of s) {
+        console.log(item);
+      }
+      console.log(s.size);
+      // Math.floor(Math.random() * 10) + 1   Chisla ot 1 do 10
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) Сгенерируйте 100 случайных чисел от 1 до 10 и запишите их в Set.
+2) Выведите все элементы в Set через цикл в консоль.
+3) Убедитесь, что его длина не превышает 10, выведя дополнительно свойство size у созданного объекта Set. -->
