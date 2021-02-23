@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      let start = new Date().getTime();
+      function timer() {
+        let s = (new Date().getTime() - start) / 1000;
+        console.log(s);
+        setTimeout(timer, 500);
+      }
+      setTimeout(timer, 500);
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) Сделайте функцию, которая будет запускаться каждые 500 миллисекунд и выводить информацию о том, сколько секунд прошло после запуска скрипта. -->

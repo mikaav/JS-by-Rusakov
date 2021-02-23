@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      let text =
+        "There are many variations of passages of Lorem Ipsum 200 available, but the majority have suffered 15  alteration in some form, by injected 5297 humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.";
+      console.log(text);
+      let count = 0;
+      let words = text.split(" ");
+      for (let w of words) {
+        w = w.trim();
+        if (w != "") {
+          count++;
+        }
+      }
+      let reg = /(\d+(\.\d+)?)/gi;
+      let matches = text.match(reg);
+      console.log(matches);
+      let arr = matches.map(function (item, index, array) {
+        return Number(item);
+      });
+
+      console.log(arr);
+
+      for (let a of arr) {
+        console.log(a);
+      }
+
+      arr.sort(function (item1, item2) {
+        return item1 - item2;
+      });
+
+      console.log(arr);
+
+      text = text.toLowerCase();
+      let map = new Map();
+      for (let s of text) {
+        if (map.has(s)) {
+          let count = map.get(s);
+          count++;
+          map.set(s, count);
+        } else map.set(s, 1);
+      }
+      console.log(map);
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) Найдите произвольный текст, где будет некоторое количество чисел (подойдёт текст на 1000 – 2000 символов).
+2) Выведите в консоль количество слов в тексте.
+3) С помощью регулярных выражений вытащите из текста и выведете в консоль все числа (именно числа, а не просто цифры).
+4) Добавьте эти числа в массив.
+5) Выведите в консоль массив через цикл.
+6) Отсортируйте массив по возрастанию.
+7) Создайте Map, где ключом будет символ из текста, а значением количество его вхождений в тексте без учёта регистра. 
+Например: [“.”] = 50, [‘а’] = 80, [‘к’] = 31, [‘9’] = 31 и так далее. -->

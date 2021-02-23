@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      let col = new Intl.Collator();
+      let arr = ["ёж", "яблоко", "клён", "стол", "ананас"];
+      console.log(arr.sort());
+      console.log(
+        arr.sort(function (item1, item2) {
+          return col.compare(item1, item2);
+        })
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) Посмотрите в справочнике дополнительные параметры объектов Intl.
+2) Отсортируйте по алфавиту массив, состоящий из следующих строк: «ёж», «яблоко», «клён», «стол», «ананас». -->
