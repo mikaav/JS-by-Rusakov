@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+  </head>
+  <body>
+    <h1>1</h1>
+    <h2>2</h2>
+    <h3>3</h3>
+    <h4>4</h4>
+    <h5>5</h5>
+    <h6>6</h6>
+    <a href="http://www.google.ru">Link 1</a>
+    <a href="http://mysite.local">Link 2</a>
+    <a href="http://yandex.ru">Link 3</a>
+  </body>
+  <script>
+    let elemets = document.querySelectorAll("a");
+    let reg = / ^ http:\/\/ mysite.local/gi;
+    for (let elem of elemets) {
+      if (!elem.getAttribute("href").match(reg)) {
+        elem.setAttribute(
+          "href",
+          "http://www.fb.com" + elem.getAttribute("href")
+        );
+      }
+    }
+  </script>
+</html>
+
+<!-- 1) За основу возьмите HTML-страницу, созданную в предыдущем уроке.
+2) Добавьте 3 ссылки на страницу.
+3) Получите доступ ко всем ссылкам на странице и измените атрибут href по следующем принципу: 
+если ссылка ведёт на сайт http://mysite.local, то не изменять её, 
+в противном случае заменить href на http://mysite.local/r?a=СТАРЫЙ_HREF.
+Примечание: 
+если была ссылка, например «http://1.ru/abc.html», то она должна стать вот такой: «http://mysite.local/r?a=http://1.ru/abc.html». -->

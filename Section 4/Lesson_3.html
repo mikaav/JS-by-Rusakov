@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+  </head>
+  <body>
+    <h1>1</h1>
+    <h2>2</h2>
+    <h3>3</h3>
+    <h4>4</h4>
+    <h5>5</h5>
+    <h6>6</h6>
+  </body>
+  <script>
+    let elemets = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+    for (let elem of elemets) {
+      elem.innerHTML = Math.floor(Math.random() * 1000);
+    }
+  </script>
+</html>
+
+<!-- 1) За основу возьмите HTML-страницу, созданную в предыдущем уроке.
+2) Получите доступ ко всем заголовкам (h1, h2, h3, h4, h5 и h6) и измените текст внутри них на случайные числа. -->
