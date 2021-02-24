@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+  </head>
+  <body>
+    <div>
+      <h1>Site Name</h1>
+    </div>
+    <div>
+      <h2>Text Name</h2>
+      <p>Some text 1</p>
+      <p>Some text section 2</p>
+      <ul>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+      </ul>
+      <p>Text of some blog</p>
+    </div>
+    <div>Footer of Site</div>
+  </body>
+  <script>
+    document.body.style.color = "red";
+
+    function changeColor() {
+      let digits = "0123456789abcdef";
+      let color = "#";
+      for (let i = 0; i < 6; i++) {
+        color += digits[Math.floor(Math.random() * 16)];
+      }
+      console.log(color);
+      setTimeout(changeColor, 200);
+      document.body.style.color = color;
+    }
+
+    changeColor();
+  </script>
+</html>
+
+<!-- 1) Сделайте функцию, которая будет запускаться каждые 200 миллисекунд и менять цвет текста на странице на случайный.
+Примечание: вариантов это сделать масса. Можно отдельно генерировать каждую составляющую цвету в десятичном формате. 
+Можно же просто сгенерировать шестнадцатеричный код, генерируя каждый символ отдельно, либо сгенерировав соответствующее десятичное число 
+и переведя его в шестнадцатеричную систему счисления. -->

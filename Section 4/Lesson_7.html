@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+  </head>
+  <body>
+    <div id="comment-template">
+      <span class="date">Дата и время </span>
+      <span class="name"> >Имя </span> пишет: <span class="text">Текст</span>
+    </div>
+  </body>
+  <script>
+    class Comment {
+      static names = [
+        "Vazgencho",
+        "Aramik",
+        "Gagulik",
+        "Ter Hayr",
+        "Mishik",
+        "Valodik",
+      ];
+      static texts = [
+        "Sax oka",
+        "Toshniya",
+        "Kayfot lrvacenk",
+        "Kayfa xareb",
+        "Loqsha besamt",
+        "Ur lrvcnenk",
+      ];
+      constructor(name, date, text) {
+        this.name = name;
+        this.date = date;
+        this.text = text;
+      }
+
+      static getRandomName() {
+        return Comment.names[Math.floor(Math.random() * Comment.names.length)];
+      }
+
+      static getRandomText() {
+        return Comment.texts[Math.floor(Math.random() * Comment.texts.length)];
+      }
+    }
+
+    let count = 10;
+    let comments = [];
+    for (let i = 0; i < count; i++) {
+      comments.push(
+        new Comment(
+          Comment.getRandomName(),
+          new Date(Math.random() * 10000000000000),
+          Comment.getRandomText()
+        )
+      );
+    }
+
+    for (let c of comments) {
+      let template = document
+        .querySelector("#comment-template")
+        .cloneNode(true);
+      template.removeAttribute("id");
+      template.querySelector(".name").innerHTML = c.name;
+      template.querySelector(".date").innerHTML = c.date;
+      template.querySelector(".text").innerHTML = c.text;
+      document.body.append(template);
+    }
+  </script>
+</html>
+
+<!-- 1) Создайте класс комментариев с полями: имя, дата и время, текст. Примечание: разумеется, предварительно стоит создать массивы 
+  (либо объекты Set) для случайных данных по имени и тексту. Дату же можно генерировать просто с помощью Math.random().
+2) Сгенерируйте 10 случайных комментариев и запишите их все в массив.
+3) Выведите на HTML-страницу все сгенерированные комментарии в формате: <div><span class="date">Дата и время</span> <span class="name"> >Имя</span> 
+  пишет: <span class="text">Текст</span></div>.
+Примечание: разумеется, предварительно стоит создать массивы (либо объекты Set) для случайных данных по имени и тексту. 
+Дату же можно генерировать просто с помощью Math.random(). -->

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+  </head>
+  <body>
+    <h1>Do do list</h1>
+    <ul id="list"></ul>
+  </body>
+  <script>
+    let ul = document.querySelector("#list");
+    while (true) {
+      let text = prompt(
+        "Write here what you want to add in to do list. for exit enter : EXIT, for delete your text enter: CLEAR"
+      );
+      if (text == "exit") break;
+      else if (text == "clear") {
+        let elems = document.querySelectorAll("#list li");
+        for (let e of elems) {
+          e.remove();
+        }
+      } else {
+        let li = document.createElement("li");
+        li.innerHTML = text;
+        ul.append(li);
+      }
+    }
+  </script>
+</html>
+
+<!-- 1) Добавьте на HTML-страницу пустой список ul.
+2) Через prompt в бесконечном цикле просите пользователя вводить очередную строку.
+3) Добавляйте все строки внутрь списка ul (разумеется, текст должен быть внутри li).
+4) Если пользователь введёт clear, то все элементы из списка должны удалиться.
+5) Если пользователь введёт exit, то должен произойти выход из цикла.
+Примечание: результат будет отображаться только после завершения цикла, что нормально. -->
