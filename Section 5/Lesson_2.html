@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+  </head>
+  <body>
+    <p>Text 1</p>
+    <p>Text 2</p>
+    <p>Text 3</p>
+  </body>
+  <script>
+    let t = "Deleted by User";
+
+    function handler(event) {
+      let target = event.target;
+      if (target.innerHTML == t) target.remove();
+      else target.innerHTML = t;
+    }
+
+    let elems = document.querySelectorAll("p");
+    for (let e of elems) {
+      e.addEventListener("click", handler);
+    }
+  </script>
+</html>
+
+<!-- 1) Добавьте на HTML-страницу 3 абзаца (тег
+) с произвольным текстом.
+2) При клике по абзацу заменяйте текст в нём на «Удалено пользователем».
+3) При клике по абзацу, где уже «Удалено пользователем» находится, просто удалять сам элемент. -->
