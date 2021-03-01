@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      function clickLink(event) {
+        event.preventDefault();
+      }
+
+      document.addEventListener("DOMContentLoader", function (event) {
+        let elems = document.querySelectorAll("a");
+        for (let a of elems) {
+          a.addEventListener("click", clickLink);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <a href="http://1.ru">Link 1</a>
+    <a href="http://2.ru">Link 2</a>
+    <a href="http://3.ru">Link 3</a>
+  </body>
+</html>
+
+<!-- 1) Добавьте на HTML-страницу несколько ссылок.
+2) После загрузки HTML-страницы сделайте все ссылки нерабочими, то есть чтобы по ним нельзя было перейти, просто кликнув. -->

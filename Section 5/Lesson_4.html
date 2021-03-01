@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      function mouseover(event) {
+        let p = document.createElement("p");
+        p.innerHTML = "Hello this is text";
+        event.target.append(p);
+      }
+
+      function mousedown(event) {
+        event.target.querySelector("p").style.fontWeight = "bold";
+      }
+
+      function mouseup(event) {
+        event.target.querySelector("p").style.fontWeight = "normal";
+      }
+
+      function mouseout(event) {
+        event.target.querySelector("p").remove();
+      }
+
+      document.addEventListener("DOMContentLoader", function (event) {
+        let div = document.querySelector("div");
+        div.addEventListener("mouseover", mouseover);
+        div.addEventListener("mousedown", mousedown);
+        div.addEventListener("mouseup", mouseup);
+        div.addEventListener("mouseout", mouseout);
+      });
+    </script>
+  </head>
+  <body>
+    <div
+      style="text-align: center; border: 1px solid #000; height: 300px"
+    ></div>
+  </body>
+</html>
+
+<!-- 1) Добавьте на HTML-страницу пустой блок div.
+2) При наведении курсора мыши в блоке div должен добавиться элемент <p> с текстом.
+3) При нажатии левой кнопки мыши по блоку div текст из 2-го пункта должен стать bold (жирным).
+4) При отпускании левой кнопки мыши по блоку div текст из 2-го пункта должен стать normal (нормальным).
+5) При уводе курсора мыши с div элемент <p> должен удалиться. -->
