@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <style>
+      div {
+        text-align: center;
+        border: 1px solid #000;
+        height: 100px;
+        width: 100px;
+        position: absolute;
+      }
+    </style>
+    <script>
+      function keydown(event) {
+        const div = document.querySelector("div");
+        console.log(event.code);
+        let top = parseFloat(div.style.top) ? parseFloat(div.style.top) : 0;
+        let left = parseFloat(div.style.left) ? parseFloat(div.style.left) : 0;
+        // div.style.top;
+        // parseInt
+        if (event.code == "ArrowUp") div.style.top = top - 10 + "px";
+        else if (event.code == "ArrowDown") div.style.top = top + 10 + "px";
+        else if (event.code == "ArrowLeft") div.style.left = left - 10 + "px";
+        else if (event.code == "ArrowRight") div.style.left = left + 10 + "px";
+      }
+
+      document.addEventListener("DOMContentLoaded", function (event) {
+        const div = document.querySelector("div");
+        div.addEventListener("keydown", keydown);
+      });
+    </script>
+  </head>
+  <body>
+    <div tabindex="0" style="top: 0; left: 0"></div>
+  </body>
+</html>
+
+<!-- 1) Добавьте пустой блок поле на страницу (<div tabindex="0"></div>).
+2) При клике по стрелкам на клавиатуре он должен перемещаться на 10px вверх, вниз, вправо или влево в зависимости от нажатой клавиши. -->

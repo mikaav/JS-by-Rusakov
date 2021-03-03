@@ -22,7 +22,7 @@
         event.target.querySelector("p").remove();
       }
 
-      document.addEventListener("DOMContentLoader", function (event) {
+      document.addEventListener("DOMContentLoaded", function (event) {
         let div = document.querySelector("div");
         div.addEventListener("mouseover", mouseover);
         div.addEventListener("mousedown", mousedown);

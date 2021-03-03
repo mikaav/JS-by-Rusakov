@@ -8,7 +8,7 @@
         event.preventDefault();
       }
 
-      document.addEventListener("DOMContentLoader", function (event) {
+      document.addEventListener("DOMContentLoaded", function (event) {
         let elems = document.querySelectorAll("a");
         for (let a of elems) {
           a.addEventListener("click", clickLink);
