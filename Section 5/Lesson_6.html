@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      function submit(event) {
+        event.preventDefault();
+
+        clearErrors();
+
+        let form = event.target;
+
+        let login = form.querySelector("input[name=login]");
+        let email = form.querySelector("input[name=email]");
+        let password = form.querySelector("input[name=password]");
+        let confirm_password = form.querySelector(
+          "input[name=confirm_password]"
+        );
+
+        let error = false;
+
+        if (!login.value.match(/^[a-z0-9]{3,32}$/i)) {
+          // for login
+          error = true;
+          login.after(getError("Wrong Login"));
+        }
+
+        if (
+          !email.value.match(
+            /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/i
+          )
+        ) {
+          // for email
+          error = true;
+          email.after(getError("Wrong E-Mail"));
+        }
+
+        if (password.value.length < 4) {
+          // for password
+          error = true;
+          password.after(getError("Password is very short"));
+        }
+
+        if (password.value !== confirm_password.value) {
+          // for password confirmation
+          error = true;
+          confirm_password.after(getError("Passwords is not match"));
+        }
+
+        if (!error) {
+          let p = document.createElement("p");
+          p.innerHTML = "Thanks for Registration!";
+          login.value = "";
+          email.value = "";
+          password.value = "";
+          confirm_password.value = "";
+          form.prepend(p);
+        }
+      }
+
+      function getError(msg) {
+        let span = document.createElement("span");
+        span.classList.add("error");
+        span.innerHTML = msg;
+        return span;
+      }
+
+      function clearErrors() {
+        let errors = document.querySelectorAll(".error");
+        for (e of errors) e.remove();
+      }
+
+      document.addEventListener("DOMContentLoaded", function (event) {
+        document.querySelector("form").addEventListener("submit", submit);
+      });
+    </script>
+  </head>
+  <body>
+    <form name="reg" action="#" method="POST">
+      <div>
+        <label>Login:</label>
+        <input type="text" name="login" />
+      </div>
+      <div>
+        <label>E-Mail:</label>
+        <input type="email" name="email" />
+      </div>
+      <div>
+        <label>Password:</label>
+        <input type="password" name="password" />
+      </div>
+      <div>
+        <label>Confirm Password:</label>
+        <input type="password" name="confirm_password" />
+      </div>
+      <input type="submit" name="reg" value="Registration" />
+    </form>
+  </body>
+</html>
+
+<!-- 1) Добавьте на страницу форму регистрации с полями: логин, e-mail, пароль, подтвердите пароль.
+2) Добавьте кнопку «Зарегистрироваться».
+3) После нажатия на кнопку «Зарегистрироваться» должна быть осуществлена проверка всех введённых данных.
+4) Если они корректные, то вывести элемент
+с текстом «Спасибо за регистрацию!», очистив всю форму.
+5) Если данные некорректные, то вывести элемент
+с соответствующим текстом рядом с тем элементом, где была ошибка.
+Примечание: логин должен быть от 3 до 32 символов (только буквы и цифры), пароль должен быть минимум 4 символа и, разумеется, 
+должен совпадать с полем «подтвердите пароль». -->
