@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      function parseText(event) {
+        let text = document.querySelector("textarea").value.toLowerCase();
+        let words = text.split(" ");
+
+        let map = new Map();
+        for (let w of words) {
+          w = w.trim();
+          if (map.has(w)) {
+            let c = map.get(w);
+            map.set(w, ++c);
+          } else map.set(w, 1);
+        }
+
+        let ul = document.createElement("ul");
+        document.body.append(ul);
+        for (let elem of map) {
+          let li = document.createElement("li");
+          li.innerHTML = `Word ${elem[0]}: ${elem[1]}`;
+          ul.append(li);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function (event) {
+        document.querySelector("button").addEventListener("click", parseText);
+      });
+    </script>
+  </head>
+  <body>
+    <textarea rows="20" cols="40"></textarea>
+    <br />
+    <button>Send</button>
+  </body>
+</html>
+
+<!-- 1) Добавьте на HTML-страницу текстовую область, куда пользователь должен будет вставлять произвольный текст, и кнопку «Отправить».
+2) Когда пользователь нажмёт на кнопку «Отправить», считайте текст из текстовой области и запишите в переменную.
+3) Создайте массив, куда запишите все слова из текста.
+4) Создайте Map, где ключом будет слово, а значением число его вхождений в текст.
+5) Выведите Map с помощью элементов <ul> и <li> на страницу в таком формате: 
+  <ul><li>Слово «дом»: 20</li><li>Слово «я»: 15</li><li>Слово «лес»: 3</li></ul>. -->
