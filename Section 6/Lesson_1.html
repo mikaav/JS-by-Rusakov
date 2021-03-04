@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      function loadImage(success, error) {
+        let image = document.createElement("img");
+        image.src = "https://srs.myrusakov.ru/images/php7-cover.png";
+        document.body.append(image);
+        image.onload = success;
+        image.onerror = error;
+      }
+
+      document.addEventListener("DOMContentLoaded", function (event) {
+        loadImage(
+          function () {
+            console.log("Loading is Completed");
+          },
+          function () {
+            console.log("Loading is error");
+          }
+        );
+      });
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) С помощью callback обработайте загрузку изображения. То есть необходимо будет создать элемент img через JavaScript 
+  и настроить ему атрибут src.
+2) Сразу после загрузки изображения выведите в консоль «Загрузка завершена». 
+При неудачной загрузке выведите в консоль «Ошибка загрузки».
+Примечание: можете воспользоваться ссылкой https://srs.myrusakov.ru/images/php7-cover.png, 
+также обязательно попробуйте несуществующий адрес, чтобы проверить обработку ошибки. -->

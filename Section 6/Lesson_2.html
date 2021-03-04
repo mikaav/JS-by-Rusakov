@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      function loadImage(success, error) {
+        return new Promise(function (resolve, reject) {
+          let image = document.createElement("img");
+          image.src = "https://srs.myrusakov.ru/images/php7-cover.png";
+          document.body.append(image);
+          image.onload = resolve;
+          image.onerror = reject;
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", function (event) {
+        let p = loadImage();
+        p.then(
+          function () {
+            console.log("Loading is Completed");
+          },
+          function () {
+            console.log("Loading is error");
+          }
+        );
+      });
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) Задачу из предыдущего упражнения сделайте с использованием промисов. -->

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      async function loadImage() {
+        let p = await new Promise(function (resolve, reject) {
+          let image = document.createElement("img");
+          image.src = "https://srs.myrusakov.ru/images/php7-cover.png";
+          document.body.append(image);
+          image.onload = resolve;
+          image.onerror = reject;
+        });
+
+        await new Promise(function (resolve, reject) {
+          setTimeout(resolve, 2000);
+        });
+
+        console.log("Loading is Completed");
+      }
+
+      document.addEventListener("DOMContentLoaded", function (event) {
+        loadImage();
+      });
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!-- 1) Задача из предыдущего упражнения модернизируйте так, что пока изображение не будет загружена, скрипт дальше не пойдёт.
+Примечание: убедитесь, что всё работает именно так, как нужно, например, после загрузки выведете что-нибудь в консоль, 
+и эта надпись не должна появляться, пока не прогрузится изображение. -->
