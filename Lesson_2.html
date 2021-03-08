@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      async function getRandom(url, min, max) {
+        let response = await fetch(url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+          },
+          body: JSON.stringify({ min: min, max: max }),
+        });
+        let text = await response.text();
+        if (response.ok) {
+          console.log("Data is loaded: " + text);
+          return text;
+        } else {
+          console.log("Error: " + response.status);
+          return false;
+        }
+      }
+
+      async function handler() {
+        let min = Number(document.querySelector("input [name=min]").value);
+        let max = Number(document.querySelector("input [name=max]").value);
+        let text = getRandom("Lesson_2.php", min, max);
+        if (text) {
+          if (document.querySelector("p")) {
+            document.querySelector("p").remove();
+          }
+          let p = document.createElement("p");
+          p.textContent = text;
+          document.body.append(p);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <label>Minimum Result:</label> <input type="text" name="min" />
+    <br />
+    <label>Maximum Result:</label> <input type="text" name="max" />
+    <br />
+    <button onclick="handler()">Сгенерировать случайное число</button>
+  </body>
+</html>
+
+<!-- 1) Модернизируйте упражнение из предыдущего урока, добавив на HTML-страницу 2 текстовых поля.
+2) Модернизируйте PHP-скрипт так, чтобы вместо 1 и 100 подставлялись данные из POST-запроса. Входной тип данных будет JSON.
+3) При клике по кнопке генерации случайного числа, считайте оба текстовых поля, и отправьте POST-запросом эти данные на скрипт в виде JSON-строки.
+4) Считайте ответ от скрипта и выведете его так же внутри тега
+, как это было в предыдущем упражнении. -->

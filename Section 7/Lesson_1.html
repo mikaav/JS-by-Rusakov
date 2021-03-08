@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      async function getData(url) {
+        let response = await fetch(url);
+        let text = await response.text();
+        if (response.ok) {
+          console.log("Data is loaded: " + text);
+          return text;
+        } else {
+          console.log("Error: " + response.status);
+          return false;
+        }
+      }
+
+      async function handler() {
+        let text = await getData("Lesson_1.php");
+
+        if (text) {
+          if (document.querySelector("p")) {
+            document.querySelector("p").remove();
+          }
+          let p = document.createElement("p");
+          p.textContent = text;
+          document.body.append(p);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="handler()">Сгенерировать случайное число</button>
+  </body>
+</html>
+
+<!-- 1) Создайте простой скрипт на PHP: <?php echo mt_rand(1, 100); ?> - данный скрипт будет выводиться случайное число от 1 до 100.
+2) На HTML-страницу добавьте кнопку: «Сгенерировать случайное число».
+3) При клике по кнопке добавьте тег
+с текстом внутри в виде числа, полученного от PHP-скрипта из 1-го пункта.
+При повторных кликах удалять старый тег <p> и добавлять новый с новым числом. -->
