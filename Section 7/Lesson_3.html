@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      let input;
+      document.addEventListener("DOMContentLoaded", function (event) {
+        input = document.querySelector("input[name=archive]");
+        input.addEventListener("change", sendArchive);
+      });
+
+      async function sendArchive(event) {
+        let archive = input.files[0];
+        console.log(archive);
+        let response = await fetch("Lesson_3.php", {
+          method: "POST",
+          body: archive,
+        });
+
+        if (response.ok) {
+          let text = await response.text();
+          console.log(text);
+          let a = document.createElement("a");
+          a.setAttribute("href", text);
+          a.innerHTML = "Link";
+          document.body.append("a");
+        } else {
+          console.log("Error: " + response.status);
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input type="file" name="archive" />
+  </body>
+</html>
+
+<!-- 1) Добавьте на страницу input для загрузки файла (архива rar).
+2) Отправьте файл из input через JavaScript и сохраните файл на сервере.
+3) Сервером верните ссылку на сохранённый файл.
+4) В JavaScript примите ответ и добавьте ссылку на страницу (через тег <a>) на этот файл. -->

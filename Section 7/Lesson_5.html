@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      async function checkTime() {
+        let response = await fetch("Lesson_5.php");
+        if (response.status == 200) {
+          let time = await response.text();
+          let elem = document.createElement("p");
+          elem.innerHTML = time;
+          document.querySelector("#times").append(elem);
+        }
+        setTimeout(checkTime, 1000);
+      }
+      checkTime();
+    </script>
+  </head>
+  <body>
+    <div id="times">
+      <h2>Time:</h2>
+    </div>
+  </body>
+</html>
+
+<!-- 1) Создайте PHP-скрипт на сервере с кодом: <?php echo date(‘H:i:s’); ?> 
+  Через JavaScript каждую секунду получайте данные от сервера и выводите их через тег <p> на страницу. -->

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      let input;
+      document.addEventListener("DOMContentLoaded", function (event) {
+        input = document.querySelector("input[name=archive]");
+        input.addEventListener("change", sendArchive);
+      });
+
+      async function sendArchive(event) {
+        let archive = input.files[0];
+        console.log(archive);
+        let response = await fetch("Lesson_3.php", {
+          method: "POST",
+          body: archive,
+        });
+
+        if (response.ok) {
+          let text = await response.text();
+          console.log(text);
+          let a = document.createElement("a");
+          a.setAttribute("href", text);
+          a.innerHTML = "Link";
+          document.body.append("a");
+        } else {
+          console.log("Error: " + response.status);
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input type="file" name="archive" />
+  </body>
+</html>
+
+<!-- 1) Модернизируйте упражнение из урока «Отправка POST-запросов» так, 
+  чтобы отправлялся сам объект формы, а не строка JSON с данными из текстовых полей. -->
