@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JS</title>
+    <script>
+      async function send(url) {
+        let response = await fetch(url);
+        if (response.status == 200) {
+          let text = await response.text();
+          return text;
+        } else throw new Error("Problem with Connection.");
+      }
+
+      async function clickLink(event) {
+        event.preventDefault();
+        let url = ["Lesson_7a.php", "Lesson_7b.php", "Lesson_7c.php"][
+          event.target.getAttribute("data-tab")
+        ];
+        console.log(url);
+        try {
+          let text = await send(url);
+          if (document.querySelector("div"))
+            document.querySelector("div").remove();
+          let div = document.createElement("div");
+          div.innerHTML = text;
+          document.body.append(div);
+        } catch (e) {
+          console.log(e);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function (event) {
+        for (let a of document.querySelectorAll("a")) {
+          a.addEventListener("click", clickLink);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <a data-tab="0" href="#">Вкладка 1</a>
+    <a data-tab="1" href="#">Вкладка 2</a>
+    <a data-tab="2" href="#">Вкладка 3</a>
+  </body>
+</html>
+
+<!-- 1) Сделайте 3 PHP-скрипта, выводящим через echo какой-нибудь текст, например: «Текст от скрипта 1», «Текст от скрипта 2», «Текст от скрипта 3».
+2) Добавьте на страницу 3 ссылки: «Вкладка 1», «Вкладка 2», «Вкладка 3».
+3) При клике по вкладке сделайте запрос к соответствующему скрипту и получите от него текстовый ответ.
+4) Данный текст выведите в теге <div> на страницу.
+5) Если пользователь дальше кликает по другой ссылке, то предыдущий <div> должен исчезнуть и появиться новый с новым текстом.
+Примечание: по сути, это простейшее переключение между вкладками с динамической подгрузкой контента. -->
